@@ -6,9 +6,29 @@ const client = new Anthropic({
 
 export async function POST(request) {
   try {
-    const { yearGroup, subject, effort, tone, notes } = await request.json()
+    const { yearGroup, subject, effort, tone, notes, refinePrompt, previousResult } = await request.json()
 
-    const prompt = `You are an expert UK primary and secondary school teacher writing assistant. 
+    let prompt
+
+    if (refinePrompt && previousResult) {
+      prompt = `You are an expert UK school teacher writing assistant.
+
+Here is an existing report comment:
+"${previousResult}"
+
+Please rewrite this comment with the following adjustment: ${refinePrompt}
+
+Requirements:
+- Keep it about the same student (Year ${yearGroup}, ${subject})
+- Write in UK English (behaviour, practise, organise etc)
+- Keep it 3-4 sentences
+- Professional and appropriate for a school report
+- Do not use the student's name
+- Do not start with "This student"
+
+Write only the improved comment, nothing else.`
+    } else {
+      prompt = `You are an expert UK primary and secondary school teacher writing assistant.
 
 Write a professional report comment for the following student:
 - Year Group: ${yearGroup}
@@ -28,6 +48,7 @@ Requirements:
 - Match the tone requested (formal/warm/neutral)
 
 Write only the report comment, nothing else.`
+    }
 
     const message = await client.messages.create({
       model: 'claude-sonnet-4-6',

@@ -141,7 +141,7 @@ export default function Home() {
           <h1>Less marking.<br/><em>More teaching.</em></h1>
           <p className="hero-sub">Generate report comments, parent emails, behaviour logs, reference letters, and more — in seconds. Built around how UK teachers actually work.</p>
           <div className="hero-ctas">
-            <a href="#" className="btn btn-primary btn-large">Try it free →</a>
+            <a href="/tools" className="btn btn-primary btn-large">Try it free →</a>
             <a href="#tools" className="btn btn-outline btn-large">See the tools</a>
           </div>
           <p className="hero-trust">No credit card required <span>·</span> 10 free uses <span>·</span> Cancel anytime</p>
@@ -267,7 +267,7 @@ export default function Home() {
                 <li>Copy outputs instantly</li>
                 <li>No credit card required</li>
               </ul>
-              <a href="#" className="btn btn-outline price-cta">Start for free</a>
+              <a href="/tools" className="btn btn-outline price-cta">Start for free</a>
             </div>
             <div className="price-card featured">
               <div className="price-badge">Most popular</div>
@@ -307,7 +307,7 @@ export default function Home() {
         <div className="section-inner">
           <h2 className="section-title">Your next report comment<br/>is 30 seconds away.</h2>
           <p>No signup required. No credit card. Just less marking.</p>
-          <a href="#" className="btn btn-primary btn-large">Try Red Pen Club free →</a>
+          <a href="/tools" className="btn btn-primary btn-large">Try Red Pen Club free →</a>
           <p className="final-cta-trust">10 free uses · No account needed · Cancel Pro anytime</p>
         </div>
       </section>
@@ -330,4 +330,3 @@ export default function Home() {
       </footer>
     </main>
   )
-}

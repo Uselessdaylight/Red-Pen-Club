@@ -329,4 +329,4 @@ export default function Home() {
         <div className="footer-bottom">© 2026 Red Pen Club · redpenclub.co.uk</div>
       </footer>
     </main>
-  )
+  )}

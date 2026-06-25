@@ -13,7 +13,7 @@ const TOOLS = [
     name: 'Parent Emails',
     desc: 'From tricky conversations to celebration messages. Always the right tone.',
     href: '/tools/parent-emails',
-    live: false,
+    live: true,
   },
   {
     icon: '📋',

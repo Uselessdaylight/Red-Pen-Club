@@ -55,7 +55,7 @@ const TOOLS = [
     name: 'Assembly Scripts',
     desc: 'Engaging, age-appropriate, ready to deliver. Just add your theme.',
     href: '/tools/assembly-scripts',
-    live: false,
+    live: true,
   },
 ]
 

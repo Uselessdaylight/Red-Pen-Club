@@ -34,7 +34,7 @@ const TOOLS = [
     name: 'Reference Letters',
     desc: 'Confident, warm, and properly structured. Every time.',
     href: '/tools/reference-letters',
-    live: false,
+    live: true,
   },
   {
     icon: '🚌',

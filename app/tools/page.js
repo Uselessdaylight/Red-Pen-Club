@@ -1,3 +1,5 @@
+'use client'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const TOOLS = [
@@ -59,7 +61,20 @@ const TOOLS = [
   },
 ]
 
+const FREE_LIMIT = 3
+
 export default function ToolsDashboard() {
+  const [usage, setUsage] = useState(0)
+
+  useEffect(() => {
+    const stored = parseInt(localStorage.getItem('rpc_usage') || '0')
+    setUsage(stored)
+  }, [])
+
+  const usagePercent = Math.min((usage / FREE_LIMIT) * 100, 100)
+  const remaining = Math.max(FREE_LIMIT - usage, 0)
+  const isLimited = usage >= FREE_LIMIT
+
   return (
     <main style={{minHeight:'100vh', background:'#FAF7F2', fontFamily:'Inter, system-ui, sans-serif'}}>
       <style>{`
@@ -79,12 +94,20 @@ export default function ToolsDashboard() {
 
         .usage-bar { max-width: 1100px; margin: 0 auto 2rem; padding: 0 2rem; }
         .usage-inner { background: white; border: 1px solid #E8E0D0; border-radius: 8px; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .usage-inner.warning { border-color: #C0292B; background: #fff8f8; }
         .usage-text { font-size: 0.875rem; color: #555; }
         .usage-text strong { color: #2C2C2C; font-weight: 600; }
         .usage-track { flex: 1; min-width: 160px; max-width: 240px; height: 6px; background: #E8E0D0; border-radius: 3px; overflow: hidden; }
-        .usage-fill { height: 100%; width: 10%; background: #C0292B; border-radius: 3px; transition: width 0.3s ease; }
+        .usage-fill { height: 100%; background: #C0292B; border-radius: 3px; transition: width 0.3s ease; }
         .usage-cta { font-size: 0.8rem; font-weight: 600; color: #C0292B; text-decoration: none; }
         .usage-cta:hover { text-decoration: underline; }
+
+        .limit-banner { max-width: 1100px; margin: 0 auto 2rem; padding: 0 2rem; }
+        .limit-inner { background: #C0292B; border-radius: 8px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .limit-text { color: white; }
+        .limit-text strong { display: block; font-size: 1rem; margin-bottom: 0.25rem; }
+        .limit-text span { font-size: 0.875rem; opacity: 0.85; }
+        .limit-btn { background: white; color: #C0292B; border: none; border-radius: 4px; padding: 0.65rem 1.25rem; font-size: 0.9rem; font-weight: 700; cursor: pointer; text-decoration: none; white-space: nowrap; }
 
         .grid-section { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; }
         .grid-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; margin-bottom: 1.25rem; }
@@ -92,7 +115,7 @@ export default function ToolsDashboard() {
 
         .tool-card { background: white; border: 1.5px solid #E8E0D0; border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: box-shadow 0.2s ease, transform 0.2s ease; text-decoration: none; }
         .tool-card.live:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); border-color: #C0292B; }
-        .tool-card.soon { opacity: 0.6; cursor: default; }
+        .tool-card.locked { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
         .tool-icon { font-size: 1.75rem; line-height: 1; }
         .tool-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #2C2C2C; }
         .tool-desc { font-size: 0.83rem; color: #666; line-height: 1.6; flex: 1; }
@@ -100,46 +123,60 @@ export default function ToolsDashboard() {
         .tool-link { font-size: 0.82rem; font-weight: 600; color: #C0292B; }
         .tool-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 20px; }
         .tool-badge.live { background: #fef2f2; color: #C0292B; }
-        .tool-badge.soon { background: #f5f5f5; color: #aaa; }
+        .tool-badge.locked { background: #f5f5f5; color: #aaa; }
 
         .footer { border-top: 1px solid #E8E0D0; padding: 2rem; text-align: center; font-size: 0.8rem; color: #aaa; }
 
         @media (max-width: 600px) {
           .hero { padding: 2rem 1.5rem 1.5rem; }
           .usage-bar { padding: 0 1.5rem; }
+          .limit-banner { padding: 0 1.5rem; }
           .grid-section { padding: 0 1.5rem 3rem; }
           .nav { padding: 0 1.5rem; }
         }
       `}</style>
 
-      {/* NAV */}
       <nav className="nav">
         <a href="/" className="nav-logo"><span>Red</span> Pen Club</a>
         <a href="/" className="nav-back">← Back to home</a>
       </nav>
 
-      {/* HERO */}
       <div className="hero">
         <div className="hero-eyebrow">Your dashboard</div>
         <h1 className="hero-title">What are we writing today?</h1>
         <p className="hero-sub">Eight tools built around the writing teachers actually have to do. Pick one and go.</p>
       </div>
 
-      {/* USAGE BAR */}
-      <div className="usage-bar">
-        <div className="usage-inner">
-          <div className="usage-text"><strong>1 of 10</strong> free generations used</div>
-          <div className="usage-track"><div className="usage-fill"></div></div>
-          <a href="#" className="usage-cta">Upgrade to Pro — unlimited →</a>
+      {isLimited ? (
+        <div className="limit-banner">
+          <div className="limit-inner">
+            <div className="limit-text">
+              <strong>You've used all 10 free generations</strong>
+              <span>Upgrade to Pro for unlimited access to all 8 tools.</span>
+            </div>
+            <a href="#" className="limit-btn">Upgrade to Pro — £4.99/month →</a>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="usage-bar">
+          <div className={`usage-inner ${usage >= 7 ? 'warning' : ''}`}>
+            <div className="usage-text">
+              <strong>{usage} of {FREE_LIMIT}</strong> free generations used
+              {remaining <= 3 && remaining > 0 && <span style={{color:'#C0292B', marginLeft:'0.5rem'}}>— {remaining} remaining</span>}
+            </div>
+            <div className="usage-track">
+              <div className="usage-fill" style={{width: `${usagePercent}%`}}></div>
+            </div>
+            <a href="#" className="usage-cta">Upgrade to Pro — unlimited →</a>
+          </div>
+        </div>
+      )}
 
-      {/* TOOLS GRID */}
       <div className="grid-section">
         <div className="grid-label">All tools</div>
         <div className="tools-grid">
           {TOOLS.map(tool => (
-            tool.live ? (
+            tool.live && !isLimited ? (
               <Link href={tool.href} key={tool.name} className="tool-card live">
                 <div className="tool-icon">{tool.icon}</div>
                 <div className="tool-name">{tool.name}</div>
@@ -150,13 +187,13 @@ export default function ToolsDashboard() {
                 </div>
               </Link>
             ) : (
-              <div key={tool.name} className="tool-card soon">
+              <div key={tool.name} className={`tool-card ${isLimited ? 'locked' : 'soon'}`}>
                 <div className="tool-icon">{tool.icon}</div>
                 <div className="tool-name">{tool.name}</div>
                 <div className="tool-desc">{tool.desc}</div>
                 <div className="tool-footer">
-                  <span style={{fontSize:'0.82rem', color:'#aaa'}}>Coming soon</span>
-                  <span className="tool-badge soon">Soon</span>
+                  <span style={{fontSize:'0.82rem', color:'#aaa'}}>{isLimited ? '🔒 Upgrade to unlock' : 'Coming soon'}</span>
+                  <span className="tool-badge locked">{isLimited ? 'Locked' : 'Soon'}</span>
                 </div>
               </div>
             )

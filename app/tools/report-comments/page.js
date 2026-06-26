@@ -77,6 +77,8 @@ export default function ReportComments() {
       })
       const data = await res.json()
       setResult(data.result)
+      const current = parseInt(localStorage.getItem('rpc_usage') || '0')
+localStorage.setItem('rpc_usage', current + 1)
     } catch (err) {
       setResult('Something went wrong. Please try again.')
     }

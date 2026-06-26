@@ -20,7 +20,7 @@ const TOOLS = [
     name: 'Behaviour Logs',
     desc: 'Clear, factual, professional. Documented exactly how it needs to be.',
     href: '/tools/behaviour-logs',
-    live: false,
+    live: true,
   },
   {
     icon: '🎯',

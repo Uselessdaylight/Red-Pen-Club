@@ -27,7 +27,7 @@ const TOOLS = [
     name: 'Student Targets',
     desc: 'Specific, actionable next steps tailored to each student.',
     href: '/tools/student-targets',
-    live: false,
+    live: true,
   },
   {
     icon: '📄',

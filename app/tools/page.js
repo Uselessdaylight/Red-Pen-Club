@@ -154,7 +154,7 @@ export default function ToolsDashboard() {
               <strong>You've used all 10 free generations</strong>
               <span>Upgrade to Pro for unlimited access to all 8 tools.</span>
             </div>
-            <a href="#" className="limit-btn">Upgrade to Pro — £4.99/month →</a>
+            <a href="/upgrade" className="limit-btn">Upgrade to Pro — £4.99/month →</a>
           </div>
         </div>
       ) : (

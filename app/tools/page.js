@@ -41,7 +41,7 @@ const TOOLS = [
     name: 'Trip Letters',
     desc: 'All the information, none of the faff. Ready to send home same day.',
     href: '/tools/trip-letters',
-    live: false,
+    live: true,
   },
   {
     icon: '📰',

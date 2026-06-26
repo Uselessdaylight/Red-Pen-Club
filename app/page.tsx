@@ -282,7 +282,7 @@ export default function Home() {
                 <li>New tools as they launch</li>
                 <li>Priority support</li>
               </ul>
-              <a href="#" className="btn btn-primary price-cta">Get Pro →</a>
+              <a href="/upgrade" className="btn btn-primary price-cta">Get Pro →</a>
             </div>
           </div>
         </div>

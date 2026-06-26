@@ -48,7 +48,7 @@ const TOOLS = [
     name: 'Newsletter Articles',
     desc: 'Keep parents informed without it taking your whole lunch break.',
     href: '/tools/newsletter-articles',
-    live: false,
+    live: true,
   },
   {
     icon: '🎤',

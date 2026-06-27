@@ -151,7 +151,7 @@ export default function ToolsDashboard() {
         <div className="limit-banner">
           <div className="limit-inner">
             <div className="limit-text">
-              <strong>You've used all 10 free generations</strong>
+              <strong>You've used all 3 free generations</strong>
               <span>Upgrade to Pro for unlimited access to all 8 tools.</span>
             </div>
             <a href="/upgrade" className="limit-btn">Upgrade to Pro — £4.99/month →</a>

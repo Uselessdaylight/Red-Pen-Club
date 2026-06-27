@@ -129,7 +129,7 @@ export default function Home() {
         <div className="nav-actions">
           <a href="#tools" className="nav-link">Tools</a>
           <a href="#pricing" className="nav-link">Pricing</a>
-          <a href="#" className="btn btn-outline" style={{fontSize:'0.85rem',padding:'0.45rem 1rem'}}>Log in</a>
+    
           <a href="/tools" className="btn btn-primary" style={{fontSize:'0.85rem',padding:'0.45rem 1rem'}}>Try free</a>
         </div>
       </nav>

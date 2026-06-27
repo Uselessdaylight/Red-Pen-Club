@@ -130,7 +130,7 @@ export default function Home() {
           <a href="#tools" className="nav-link">Tools</a>
           <a href="#pricing" className="nav-link">Pricing</a>
           <a href="#" className="btn btn-outline" style={{fontSize:'0.85rem',padding:'0.45rem 1rem'}}>Log in</a>
-          <a href="#" className="btn btn-primary" style={{fontSize:'0.85rem',padding:'0.45rem 1rem'}}>Try free</a>
+          <a href="/tools" className="btn btn-primary" style={{fontSize:'0.85rem',padding:'0.45rem 1rem'}}>Try free</a>
         </div>
       </nav>
 
@@ -144,7 +144,7 @@ export default function Home() {
             <a href="/tools" className="btn btn-primary btn-large">Try it free →</a>
             <a href="#tools" className="btn btn-outline btn-large">See the tools</a>
           </div>
-          <p className="hero-trust">No credit card required <span>·</span> 10 free uses <span>·</span> Cancel anytime</p>
+          <p className="hero-trust">No credit card required <span>·</span> 3 free uses <span>·</span> Cancel anytime</p>
         </div>
         <div className="hero-visual">
           <div className="mock-label">Report Comment Generator</div>
@@ -262,7 +262,7 @@ export default function Home() {
               <div className="price-num">£0</div>
               <div className="price-period">No account needed to start</div>
               <ul className="price-features">
-                <li>10 free generations</li>
+                <li> generations</li>
                 <li>All 8 writing tools</li>
                 <li>Copy outputs instantly</li>
                 <li>No credit card required</li>
@@ -308,7 +308,7 @@ export default function Home() {
           <h2 className="section-title">Your next report comment<br/>is 30 seconds away.</h2>
           <p>No signup required. No credit card. Just less marking.</p>
           <a href="/tools" className="btn btn-primary btn-large">Try Red Pen Club free →</a>
-          <p className="final-cta-trust">10 free uses · No account needed · Cancel Pro anytime</p>
+          <p className="final-cta-trust"> uses · No account needed · Cancel Pro anytime</p>
         </div>
       </section>
 

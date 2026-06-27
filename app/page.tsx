@@ -320,8 +320,8 @@ export default function Home() {
             <div className="footer-tagline">AI writing tools for UK teachers. Made with strong coffee and a deep respect for what you do.</div>
           </div>
           <div className="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Use</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Use</a>
             <a href="#">Feedback</a>
             <a href="#">Contact</a>
           </div>

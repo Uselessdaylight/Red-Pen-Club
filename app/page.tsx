@@ -322,8 +322,8 @@ export default function Home() {
           <div className="footer-links">
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms of Use</a>
-            <a href="#">Feedback</a>
-            <a href="#">Contact</a>
+            <a href="/feedback">Feedback</a>
+            <a href="/feedback">Contact</a>
           </div>
         </div>
         <div className="footer-bottom">© 2026 Red Pen Club · redpenclub.co.uk</div>

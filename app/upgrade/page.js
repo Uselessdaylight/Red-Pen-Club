@@ -72,7 +72,7 @@ export default function Upgrade() {
       <div className="container">
         <div className="header">
           <div className="eyebrow">Upgrade to Pro</div>
-          <h1 className="title">Unlimited writing.<br/>Less marking.</h1>
+          <h1 className="title">Unlimited writing.<br/>Less paperwork.</h1>
           <p className="subtitle">You've seen what Red Pen Club can do. Upgrade to Pro and never hit a limit again.</p>
         </div>
 

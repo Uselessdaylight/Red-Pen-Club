@@ -138,7 +138,7 @@ export default function Home() {
       <div className="hero">
         <div>
           <div className="hero-eyebrow">AI writing tools for UK teachers</div>
-          <h1>Less marking.<br/><em>More teaching.</em></h1>
+          <h1>Less paperwork.<br/><em>More teaching.</em></h1>
           <p className="hero-sub">Generate report comments, parent emails, behaviour logs, reference letters, and more — in seconds. Built around how UK teachers actually work.</p>
           <div className="hero-ctas">
             <a href="/tools" className="btn btn-primary btn-large">Try it free →</a>
@@ -306,7 +306,7 @@ export default function Home() {
       <section className="final-cta">
         <div className="section-inner">
           <h2 className="section-title">Your next report comment<br/>is 30 seconds away.</h2>
-          <p>No signup required. No credit card. Just less marking.</p>
+          <p>No signup required. No credit card. Just less paperwork.</p>
           <a href="/tools" className="btn btn-primary btn-large">Try Red Pen Club free →</a>
           <p className="final-cta-trust"> uses · No account needed · Cancel Pro anytime</p>
         </div>

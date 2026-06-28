@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Red Pen Club - AI Writing Tools for UK Teachers",
-  description: "Save hours on reports, parent emails, lesson plans and more. AI-powered writing tools built specifically for UK teachers.",
+  description: "Save hours on reports, parent emails, behaviour logs, and more. AI-powered writing tools built specifically for UK teachers. Free to try.",
 };
 
 export default function RootLayout({

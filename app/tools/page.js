@@ -167,7 +167,7 @@ export default function ToolsDashboard() {
             <div className="usage-track">
               <div className="usage-fill" style={{width: `${usagePercent}%`}}></div>
             </div>
-            <a href="#" className="usage-cta">Upgrade to Pro — unlimited →</a>
+            <a href="upgrade" className="usage-cta">Upgrade to Pro — unlimited →</a>
           </div>
         </div>
       )}

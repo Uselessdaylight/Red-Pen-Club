@@ -125,7 +125,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav>
-        <a href="#" className="nav-logo"><span>Red</span> Pen Club</a>
+        <a href="/" className="nav-logo"><span>Red</span> Pen Club</a>
         <div className="nav-actions">
           <a href="#tools" className="nav-link">Tools</a>
           <a href="#pricing" className="nav-link">Pricing</a>
